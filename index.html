@@ -234,6 +234,142 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
   .faq-q span{font-size:14px;}
 }
 
+
+/* ===== PAGE PRISE DE RDV ===== */
+.rdv-wrap{background:#0d0d0d;min-height:100vh;padding:3rem 1.5rem 4rem;}
+.rdv-header{max-width:700px;margin:0 auto 3rem;text-align:center;}
+.rdv-header h1{font-size:clamp(28px,5vw,44px);font-weight:700;color:#fff;line-height:1.2;margin:0.75rem 0 1rem;}
+.rdv-header h1 em{font-style:normal;color:#B47B2A;}
+.rdv-header p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;}
+.rdv-header p strong{color:#B47B2A;}
+.rdv-body{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
+
+/* Formulaire */
+.rdv-form-card{background:#111;border:1px solid #222;border-radius:14px;padding:2rem;}
+.rdv-form-group{margin-bottom:1.25rem;}
+.rdv-form-group label{display:block;font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:8px;letter-spacing:0.3px;}
+.rdv-form-group input,.rdv-form-group select{
+  width:100%;padding:13px 16px;
+  background:#1a1a1a;border:1px solid #2a2a2a;
+  border-radius:8px;font-size:15px;color:#fff;
+  transition:border-color 0.2s;
+}
+.rdv-form-group input:focus,.rdv-form-group select:focus{outline:none;border-color:#B47B2A;}
+.rdv-form-group select option{background:#1a1a1a;color:#fff;}
+.rdv-submit{
+  width:100%;background:#B47B2A;color:#fff;
+  border:none;padding:16px;border-radius:8px;
+  font-size:16px;font-weight:700;cursor:pointer;
+  margin-top:0.5rem;transition:background 0.2s;
+  letter-spacing:0.3px;
+}
+.rdv-submit:hover{background:#9a6820;}
+.rdv-submit:disabled{background:#555;cursor:not-allowed;}
+.rdv-note{font-size:12px;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.75rem;}
+.rdv-success{display:none;background:#1a2e1a;color:#4caf50;border:1px solid #2e4a2e;padding:14px;border-radius:8px;font-size:14px;text-align:center;margin-top:1rem;}
+
+/* Zone de confiance */
+.rdv-trust{display:flex;flex-direction:column;gap:1.5rem;}
+.rdv-trust-title{font-size:13px;color:#B47B2A;text-transform:uppercase;letter-spacing:2px;font-weight:600;}
+.rdv-steps{display:flex;flex-direction:column;gap:1.25rem;}
+.rdv-step{display:flex;gap:1rem;align-items:flex-start;}
+.rdv-step-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.rdv-step strong{display:block;font-size:15px;color:#fff;margin-bottom:4px;}
+.rdv-step p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;}
+
+.rdv-direct{padding:1.25rem;background:#111;border-radius:10px;text-align:center;}
+.rdv-direct p{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+.rdv-wa-btn{display:inline-block;background:#25D366;color:#fff;padding:11px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.rdv-wa-btn:hover{background:#1db954;}
+
+.rdv-guarantee{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:#111;border:1px solid #222;border-radius:10px;border-left:3px solid #B47B2A;}
+.rdv-guarantee-icon{font-size:24px;flex-shrink:0;}
+.rdv-guarantee strong{display:block;font-size:14px;color:#fff;margin-bottom:4px;}
+.rdv-guarantee p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+
+.rdv-back{max-width:960px;margin:2.5rem auto 0;text-align:left;}
+.rdv-back span{font-size:14px;color:rgba(255,255,255,0.35);cursor:pointer;}
+.rdv-back span:hover{color:#B47B2A;}
+
+/* Responsive mobile RDV */
+@media(max-width:768px){
+  .rdv-body{grid-template-columns:1fr;}
+  .rdv-trust{margin-top:0;}
+  .rdv-wrap{padding:2rem 1rem 3rem;}
+}
+
+
+/* ===== TEASER SURPRISES (accueil) ===== */
+.surprises-teaser{background:#0a0a0a;padding:5rem 2rem;border-top:1px solid #1a1a1a;}
+.surprises-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.surprises-text h2{font-size:clamp(26px,4vw,38px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:1.25rem;}
+.surprises-text h2 em{font-style:normal;color:#B47B2A;}
+.surprises-text p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.25rem;}
+.surprises-list{list-style:none;margin-bottom:2rem;}
+.surprises-list li{font-size:14px;color:rgba(255,255,255,0.75);padding:7px 0;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;gap:10px;}
+.surprises-grid-preview{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sp-card{background:#111;border:1px solid #222;border-radius:12px;padding:2rem 1rem;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:36px;transition:border-color 0.2s;cursor:pointer;}
+.sp-card:hover{border-color:#B47B2A;}
+.sp-card span{font-size:13px;color:rgba(255,255,255,0.6);text-align:center;}
+
+/* ===== PAGE BOUTIQUE ===== */
+.boutique-hero{background:#000;padding:5rem 2rem 3rem;text-align:center;border-bottom:1px solid #1a1a1a;}
+.boutique-hero h1{font-size:clamp(30px,5vw,50px);font-weight:700;color:#fff;line-height:1.2;margin:0.75rem 0 1rem;}
+.boutique-hero h1 em{font-style:normal;color:#B47B2A;}
+.boutique-hero p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:1.75rem;}
+
+.boutique-body{background:#0d0d0d;padding:3rem 2rem;}
+.boutique-cat{max-width:1000px;margin:0 auto 0;}
+.cat-header{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2rem;}
+.cat-emoji{font-size:40px;flex-shrink:0;margin-top:4px;}
+.cat-header h2{font-size:clamp(22px,3vw,30px);font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.cat-header p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;}
+
+/* Masquer le doublon artificiel */
+.cat-emoji-header{display:none;}
+
+.boutique-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:1rem;}
+.boutique-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;}
+.boutique-card:hover{border-color:#B47B2A;transform:translateY(-3px);}
+.featured-card{border-color:#B47B2A22;}
+.bc-img{background:#1a1a1a;height:140px;display:flex;align-items:center;justify-content:center;font-size:52px;}
+.bc-img-1{background:linear-gradient(135deg,#1a1200,#2a1e00);}
+.bc-img-2{background:linear-gradient(135deg,#120018,#1e002a);}
+.bc-img-3{background:linear-gradient(135deg,#001a12,#002a1e);}
+.bc-info{padding:1.25rem;}
+.bc-info h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:0.5rem;}
+.bc-info p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:0.75rem;}
+.bc-tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;background:#1a1a1a;color:rgba(255,255,255,0.5);border:1px solid #2a2a2a;}
+.gold-tag{background:#2a1e00;color:#B47B2A;border-color:#B47B2A44;}
+
+.boutique-divider{max-width:1000px;margin:3rem auto;border:none;border-top:1px solid #1a1a1a;}
+
+/* CTA commande */
+.boutique-cta{background:#111;border:1px solid #1e1e1e;border-radius:14px;max-width:1000px;margin:3rem auto 0;padding:2.5rem;}
+.boutique-cta-inner{text-align:center;}
+.boutique-cta h3{font-size:22px;font-weight:700;color:#fff;margin-bottom:0.75rem;}
+.boutique-cta p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:1.5rem;}
+.boutique-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem;}
+.rdv-wa-btn.big{padding:14px 28px;font-size:15px;}
+.cta-ghost-dark{background:transparent;color:#fff;border:1.5px solid #333;padding:14px 28px;border-radius:8px;font-size:15px;cursor:pointer;transition:border-color 0.2s;}
+.cta-ghost-dark:hover{border-color:#B47B2A;color:#B47B2A;}
+.boutique-livraison{font-size:12px;color:rgba(255,255,255,0.3);}
+
+/* ===== RESPONSIVE MOBILE BOUTIQUE ===== */
+@media(max-width:768px){
+  .surprises-inner{grid-template-columns:1fr;}
+  .surprises-grid-preview{grid-template-columns:1fr 1fr;}
+  .boutique-grid{grid-template-columns:1fr;}
+  .boutique-cta-btns{flex-direction:column;align-items:center;}
+  .rdv-wa-btn.big,.cta-ghost-dark{width:100%;text-align:center;}
+  .cat-header{flex-direction:column;gap:0.75rem;}
+  .cat-emoji{font-size:32px;}
+}
+@media(max-width:480px){
+  .sp-card{padding:1.25rem 0.75rem;}
+  .boutique-hero p br{display:none;}
+}
+
 </style>
 </head>
 <body>
@@ -244,9 +380,10 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
     <li><a id="nl-home" onclick="goTo('home')" class="active-link">Accueil</a></li>
     <li><a id="nl-services" onclick="goTo('services')">Services</a></li>
     <li><a id="nl-galerie" onclick="goTo('galerie')">Galerie</a></li>
+    <li><a id="nl-boutique" onclick="goTo('boutique')">Boutique</a></li>
     <li><a id="nl-contact" onclick="goTo('contact')">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="goTo('reservation')">Réserver</button>
+  <button class="nav-cta" onclick="goTo('reservation')">Prendre RDV</button>
 </nav>
 
 
@@ -452,6 +589,34 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
     </div>
   </section>
 
+
+  <!-- TEASER BOUTIQUE SURPRISES -->
+  <section class="surprises-teaser">
+    <div class="surprises-inner">
+      <div class="surprises-text">
+        <span class="section-label">Boutique cadeaux</span>
+        <h2>Des surprises qui<br>font <em>fondre le cœur</em></h2>
+        <p>En plus de l'organisation, Miss R Events vous propose une sélection de cadeaux et surprises pour sublimer chaque moment : peluches, fleurs naturelles et artificielles, bouquets d'argent, et conceptions sur mesure.</p>
+        <ul class="surprises-list">
+          <li>🧸 Peluches & peluches personnalisées</li>
+          <li>🌹 Fleurs naturelles fraîches</li>
+          <li>💐 Fleurs artificielles & compositions durables</li>
+          <li>💵 Bouquets d'argent & cadeaux surprise</li>
+          <li>🎁 Conception de cadeaux sur mesure</li>
+        </ul>
+        <button class="cta-gold" onclick="goTo('boutique')">Découvrir la boutique →</button>
+      </div>
+      <div class="surprises-visual">
+        <div class="surprises-grid-preview">
+          <div class="sp-card">🧸<span>Peluches</span></div>
+          <div class="sp-card">🌹<span>Fleurs naturelles</span></div>
+          <div class="sp-card">💐<span>Fleurs artificielles</span></div>
+          <div class="sp-card">💵<span>Bouquets d'argent</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="final-cta">
     <div class="final-cta-inner">
@@ -574,6 +739,213 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
   <footer><span>© 2026 Miss R Events</span><span>Cotonou, Bénin</span></footer>
 </div>
 
+
+<!-- PAGE BOUTIQUE -->
+<div id="page-boutique" class="page">
+
+  <div class="boutique-hero">
+    <span class="section-label">Miss R Events</span>
+    <h1>Boutique Surprises<br>& <em>Cadeaux</em></h1>
+    <p>Des surprises pensées pour émouvoir. Commandez sur WhatsApp,<br>livraison possible à Cotonou.</p>
+    <a class="rdv-wa-btn" href="https://wa.me/22901667331120" target="_blank">📲 Commander sur WhatsApp</a>
+  </div>
+
+  <!-- CATÉGORIES -->
+  <div class="boutique-body">
+
+    <!-- PELUCHES -->
+    <section class="boutique-cat">
+      <div class="cat-header">
+        <span class="cat-emoji">🧸</span>
+        <div>
+          <h2>Peluches</h2>
+          <p>Des peluches douces et adorables pour toutes les occasions — anniversaires, Saint-Valentin, naissances, déclarations d'amour.</p>
+        </div>
+      </div>
+      <div class="boutique-grid">
+        <div class="boutique-card">
+          <div class="bc-img bc-img-1">🧸</div>
+          <div class="bc-info">
+            <h4>Peluche nounours géante</h4>
+            <p>Idéale pour une surprise romantique ou un cadeau d'anniversaire mémorable.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img bc-img-2">🐻</div>
+          <div class="bc-info">
+            <h4>Peluche personnalisée</h4>
+            <p>Avec un message brodé ou une photo. Cadeau unique et inoubliable.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img bc-img-3">🐰</div>
+          <div class="bc-info">
+            <h4>Set peluche & bouquet</h4>
+            <p>Combinaison peluche + fleurs pour un cadeau double effet qui surprend.</p>
+            <span class="bc-tag">Populaire ⭐</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="boutique-divider"></div>
+
+    <!-- FLEURS NATURELLES -->
+    <section class="boutique-cat">
+      <div class="cat-header">
+        <span class="cat-emoji">🌹</span>
+        <div>
+          <h2>Fleurs naturelles</h2>
+          <p>Des fleurs fraîches et parfumées, arrangées avec soin pour exprimer vos émotions les plus sincères.</p>
+        </div>
+      </div>
+      <div class="boutique-grid">
+        <div class="boutique-card">
+          <div class="bc-img">🌹</div>
+          <div class="bc-info">
+            <h4>Bouquet de roses rouges</h4>
+            <p>Le classique indétrônable — 12, 24 ou 36 roses selon votre message.</p>
+            <span class="bc-tag">Disponible</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img">💮</div>
+          <div class="bc-info">
+            <h4>Bouquet mixte tropical</h4>
+            <p>Fleurs tropicales locales pour une touche africaine et colorée.</p>
+            <span class="bc-tag">Disponible</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img">🌸</div>
+          <div class="bc-info">
+            <h4>Composition sur mesure</h4>
+            <p>Vous choisissez les fleurs, les couleurs, le message. On crée.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="boutique-divider"></div>
+
+    <!-- FLEURS ARTIFICIELLES -->
+    <section class="boutique-cat">
+
+      <div class="cat-header">
+        <span class="cat-emoji">💐</span>
+        <div>
+          <h2>Fleurs artificielles</h2>
+          <p>Belles pour toujours. Des compositions qui ne se fanent jamais — idéales pour décorer un espace ou garder un souvenir.</p>
+        </div>
+      </div>
+      <div class="boutique-grid">
+        <div class="boutique-card">
+          <div class="bc-img">🪷</div>
+          <div class="bc-info">
+            <h4>Bouquet éternel premium</h4>
+            <p>Roses en soie haute qualité, arrangements professionnels durables.</p>
+            <span class="bc-tag">Populaire ⭐</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img">🌺</div>
+          <div class="bc-info">
+            <h4>Arche florale artificielle</h4>
+            <p>Pour décorer une pièce, un photobooth ou une entrée d'événement.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img">🌼</div>
+          <div class="bc-info">
+            <h4>Centre de table floral</h4>
+            <p>Composition élégante pour habiller vos tables de mariage ou réception.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="boutique-divider"></div>
+
+    <!-- BOUQUETS D'ARGENT & SURPRISES -->
+    <section class="boutique-cat">
+      <div class="cat-header">
+        <span class="cat-emoji">💵</span>
+        <div>
+          <h2>Bouquets d'argent & surprises</h2>
+          <p>Un cadeau original et généreux — de l'argent présenté de façon créative et élégante pour marquer les esprits.</p>
+        </div>
+      </div>
+      <div class="boutique-grid">
+        <div class="boutique-card featured-card">
+          <div class="bc-img">💵</div>
+          <div class="bc-info">
+            <h4>Bouquet d'argent classique</h4>
+            <p>Des billets pliés en fleurs, arrangés dans un bouquet élégant. Cadeau original et pratique.</p>
+            <span class="bc-tag gold-tag">Best-seller 🔥</span>
+          </div>
+        </div>
+        <div class="boutique-card featured-card">
+          <div class="bc-img">🎁</div>
+          <div class="bc-info">
+            <h4>Box surprise personnalisée</h4>
+            <p>Bouquet d'argent + peluche + fleurs naturelles dans une belle boîte surprise. L'effet WOW garanti.</p>
+            <span class="bc-tag gold-tag">Best-seller 🔥</span>
+          </div>
+        </div>
+        <div class="boutique-card">
+          <div class="bc-img">✨</div>
+          <div class="bc-info">
+            <h4>Cadeau sur mesure</h4>
+            <p>Vous avez une idée ? On la réalise. Budget libre, créativité garantie.</p>
+            <span class="bc-tag">Sur commande</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA COMMANDE -->
+    <div class="boutique-cta">
+      <div class="boutique-cta-inner">
+        <h3>Comment commander ?</h3>
+        <p>Toutes nos surprises sont disponibles sur commande via WhatsApp.<br>Décrivez ce que vous voulez, on vous répond rapidement avec les tarifs et disponibilités.</p>
+        <div class="boutique-cta-btns">
+          <a class="rdv-wa-btn big" href="https://wa.me/22901667331120" target="_blank">
+            📲 Commander sur WhatsApp
+          </a>
+          <button class="cta-ghost-dark" onclick="goTo('reservation')">
+            Prendre RDV pour un événement
+          </button>
+        </div>
+        <p class="boutique-livraison">📦 Livraison possible à Cotonou · Retrait sur place disponible · Paiement Mobile Money accepté</p>
+      </div>
+    </div>
+
+  </div><!-- /boutique-body -->
+
+  <footer class="footer-dark">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">MISS <span>R</span> EVENTS</div>
+        <p>Agence événementielle & surprises<br>Sodjatimé, Cotonou — Bénin</p>
+      </div>
+      <div class="footer-links">
+        <a onclick="goTo('services')">Services</a>
+        <a onclick="goTo('galerie')">Galerie</a>
+        <a onclick="goTo('boutique')">Boutique</a>
+        <a onclick="goTo('contact')">Contact</a>
+        <a onclick="goTo('reservation')">Prendre RDV</a>
+      </div>
+      <div class="footer-copy">© 2026 Miss R Events — Tous droits réservés</div>
+    </div>
+  </footer>
+
+</div>
+
 <!-- CONTACT -->
 <div id="page-contact" class="page">
   <div class="section-wrap alt">
@@ -591,30 +963,128 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
   <footer><span>© 2026 Miss R Events</span><span>Cotonou, Bénin</span></footer>
 </div>
 
-<!-- RÉSERVATION -->
+<!-- PRISE DE RDV -->
 <div id="page-reservation" class="page">
-  <div class="form-page-wrap">
-    <a class="back-link" onclick="goTo('home')"><i class="ti ti-arrow-left"></i> Retour à l'accueil</a>
-    <div class="form-page-title"><h1>Demande de réservation</h1><p>Décrivez-nous votre projet, nous vous recontactons sous 24h</p></div>
-    <div class="form-card">
-      <div class="form-grid">
-        <div class="form-group"><label>Prénom et nom</label><input type="text" id="f-nom" placeholder="Ex : Aïssatou Koffi"/></div>
-        <div class="form-group"><label>Téléphone / WhatsApp</label><input type="tel" id="f-tel" placeholder="+229 XX XX XX XX"/></div>
-        <div class="form-group"><label>Type d'événement</label><select id="f-type"><option value="">Choisir...</option><option>Mariage</option><option>Anniversaire</option><option>Événement corporate</option><option>Autre</option></select></div>
-        <div class="form-group"><label>Date souhaitée</label><input type="date" id="f-date"/></div>
-        <div class="form-group form-full"><label>Budget estimé (FCFA)</label><select id="f-budget"><option value="">Choisir une fourchette</option><option>Moins de 500 000 FCFA</option><option>500 000 – 1 000 000 FCFA</option><option>1 000 000 – 3 000 000 FCFA</option><option>Plus de 3 000 000 FCFA</option></select></div>
-        <div class="form-group form-full"><label>Décrivez votre événement</label><textarea id="f-msg" placeholder="Lieu souhaité, nombre d'invités, thème, besoins spéciaux..."></textarea></div>
-      </div>
-      <button class="submit-btn" id="submit-btn" onclick="submitForm()">Envoyer ma demande</button>
-      <div class="success-msg" id="success-msg">✓ Demande envoyée ! Nous vous recontactons sous 24h.</div>
+  <div class="rdv-wrap">
+
+    <!-- EN-TÊTE -->
+    <div class="rdv-header">
+      <span class="section-label">Consultation gratuite</span>
+      <h1>Parlons de votre<br><em>projet</em></h1>
+      <p>Laissez-nous vos coordonnées. Nous vous rappelons sous <strong>24h</strong> pour discuter de votre événement — sans engagement.</p>
     </div>
-  </div>
-  <footer><span>© 2026 Miss R Events</span><span>Cotonou, Bénin</span></footer>
-</div>
+
+    <div class="rdv-body">
+
+      <!-- FORMULAIRE SIMPLE -->
+      <div class="rdv-form-card">
+        <div class="rdv-form-group">
+          <label>Votre prénom et nom</label>
+          <input type="text" id="rdv-nom" placeholder="Ex : Aïssatou Koffi"/>
+        </div>
+        <div class="rdv-form-group">
+          <label>Votre WhatsApp / Téléphone</label>
+          <input type="tel" id="rdv-tel" placeholder="+229 XX XX XX XX"/>
+        </div>
+        <div class="rdv-form-group">
+          <label>Quel type d'événement ?</label>
+          <select id="rdv-type">
+            <option value="">Choisir...</option>
+            <option>Mariage</option>
+            <option>Anniversaire</option>
+            <option>Événement corporate / Gala</option>
+            <option>Baptême / Cérémonie</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="rdv-form-group">
+          <label>Quand souhaitez-vous qu'on vous rappelle ?</label>
+          <select id="rdv-moment">
+            <option value="">Peu importe</option>
+            <option>Le matin (8h – 12h)</option>
+            <option>L'après-midi (12h – 17h)</option>
+            <option>Le soir (17h – 20h)</option>
+          </select>
+        </div>
+        <button class="rdv-submit" id="rdv-btn" onclick="submitRdv()">
+          Je veux être rappelé(e) →
+        </button>
+        <p class="rdv-note">✓ Gratuit &nbsp;·&nbsp; ✓ Sans engagement &nbsp;·&nbsp; ✓ Réponse sous 24h</p>
+        <div class="rdv-success" id="rdv-success">
+          🎉 Parfait ! Nous vous rappelons très bientôt sur WhatsApp.
+        </div>
+      </div>
+
+      <!-- RASSURANT À DROITE -->
+      <div class="rdv-trust">
+        <div class="rdv-trust-title">Ce qui se passe après</div>
+        <div class="rdv-steps">
+          <div class="rdv-step">
+            <div class="rdv-step-icon">📞</div>
+            <div>
+              <strong>On vous rappelle</strong>
+              <p>Dans les 24h, un membre de l'équipe vous contacte sur WhatsApp ou par appel.</p>
+            </div>
+          </div>
+          <div class="rdv-step">
+            <div class="rdv-step-icon">💬</div>
+            <div>
+              <strong>On écoute votre vision</strong>
+              <p>Vous nous parlez de votre événement, vos idées, votre budget approximatif. Aucune obligation.</p>
+            </div>
+          </div>
+          <div class="rdv-step">
+            <div class="rdv-step-icon">📋</div>
+            <div>
+              <strong>Vous recevez un devis</strong>
+              <p>Sous 48h, vous recevez une proposition personnalisée et détaillée. Gratuite.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rdv-direct">
+          <p>Vous préférez nous écrire directement ?</p>
+          <a class="rdv-wa-btn" href="https://wa.me/22901667331120" target="_blank">
+            📲 Écrire sur WhatsApp
+          </a>
+        </div>
+
+        <div class="rdv-guarantee">
+          <span class="rdv-guarantee-icon">🏆</span>
+          <div>
+            <strong>+200 événements réalisés à Cotonou</strong>
+            <p>Nous connaissons le marché local, les prestataires de qualité, et les meilleures adresses du Bénin.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /rdv-body -->
+
+    <div class="rdv-back">
+      <span onclick="goTo('home')">← Retour à l'accueil</span>
+    </div>
+
+  </div><!-- /rdv-wrap -->
+</div></div>
 
 <script>
-const navIds={home:'nl-home',services:'nl-services',galerie:'nl-galerie',contact:'nl-contact'};
-const pages=['home','services','galerie','contact','reservation'];
+const navIds={home:'nl-home',services:'nl-services',galerie:'nl-galerie',boutique:'nl-boutique',contact:'nl-contact'};
+const pages=['home','services','galerie','boutique','contact','reservation'];
+
+
+function submitRdv() {
+  const nom = document.getElementById('rdv-nom').value.trim();
+  const tel = document.getElementById('rdv-tel').value.trim();
+  const type = document.getElementById('rdv-type').value;
+  if (!nom || !tel || !type) {
+    alert("Merci de renseigner votre nom, téléphone et type d'événement.");
+    return;
+  }
+  const btn = document.getElementById('rdv-btn');
+  btn.disabled = true;
+  btn.textContent = 'Demande envoyée ✓';
+  document.getElementById('rdv-success').style.display = 'block';
+}
 
 function toggleFaq(el) {
   const isOpen = el.classList.contains('open');
