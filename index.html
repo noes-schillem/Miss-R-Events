@@ -2197,18 +2197,27 @@ function submitOrder() {
     body: formData,
     headers: { 'Accept': 'application/json' }
   }).then(res => {
-    if (res.ok) {
+    return res.json().then(data => ({ok: res.ok, data}));
+  }).then(({ok, data}) => {
+    if (ok) {
       document.getElementById('order-form-wrap').style.display = 'none';
       document.getElementById('order-success').style.display = 'block';
     } else {
       btn.disabled = false;
       btn.textContent = 'Envoyer ma commande';
-      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+      // Si erreur de domaine non autorisé, soumettre via le formulaire HTML standard
+      if (data && data.error && data.error.includes('origin')) {
+        form.submit();
+      } else {
+        alert('Une erreur est survenue. Veuillez réessayer.');
+      }
     }
   }).catch(() => {
+    // Fallback : soumission HTML classique
     btn.disabled = false;
     btn.textContent = 'Envoyer ma commande';
-    alert('Problème de connexion. Vérifiez votre réseau et réessayez.');
+    form.target = '_blank';
+    form.submit();
   });
 }
 
