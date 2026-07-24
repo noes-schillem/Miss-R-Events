@@ -2176,50 +2176,44 @@ function submitOrder() {
     return;
   }
 
-  const commandeText = cart.map(i => i.qty + 'x ' + i.name).join(', ');
-
-  // Remplir le formulaire Formspree
-  document.getElementById('fs-commande').value = commandeText;
-  document.getElementById('fs-nom').value = nom;
-  document.getElementById('fs-tel').value = tel;
-  document.getElementById('fs-ville').value = ville;
-  document.getElementById('fs-msg').value = msg || 'Aucun message';
-  document.getElementById('fs-replyto').value = tel;
+  const commandeText = cart.map(i => i.qty + 'x ' + i.name).join(' | ');
 
   const btn = document.getElementById('order-submit-btn');
   btn.disabled = true;
   btn.textContent = 'Envoi en cours...';
 
-  // Envoyer via Formspree avec fetch
-  const form = document.getElementById('formspree-form');
-  const formData = new FormData(form);
+  // Envoi JSON vers Web3Forms - compatible tous appareils
+  const payload = {
+    access_key: 'da41250b-cd8d-4e96-8245-f89d3c2cc598',
+    subject: 'Nouvelle commande Miss R Events',
+    from_name: 'Miss R Events Boutique',
+    commande: commandeText,
+    nom: nom,
+    whatsapp: tel,
+    quartier: ville,
+    message: msg || 'Aucun message'
+  };
 
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  }).then(res => {
-    return res.json().then(data => ({ok: res.ok, data}));
-  }).then(({ok, data}) => {
-    if (ok) {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  }).then(res => res.json()).then(data => {
+    if (data.success) {
       document.getElementById('order-form-wrap').style.display = 'none';
       document.getElementById('order-success').style.display = 'block';
     } else {
       btn.disabled = false;
       btn.textContent = 'Envoyer ma commande';
-      // Si erreur de domaine non autorisé, soumettre via le formulaire HTML standard
-      if (data && data.error && data.error.includes('origin')) {
-        form.submit();
-      } else {
-        alert('Une erreur est survenue. Veuillez réessayer.');
-      }
+      alert('Une erreur est survenue. Veuillez réessayer.');
     }
   }).catch(() => {
-    // Fallback : soumission HTML classique
     btn.disabled = false;
     btn.textContent = 'Envoyer ma commande';
-    form.target = '_blank';
-    form.submit();
+    alert('Problème de connexion. Vérifiez votre réseau et réessayez.');
   });
 }
 
