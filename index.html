@@ -469,6 +469,109 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 .footer-social svg{width:16px;height:16px;fill:rgba(255,255,255,0.55);transition:fill 0.2s;}
 .footer-social a:hover svg{fill:#B47B2A;}
 
+
+/* ===== SYSTÈME PANIER ===== */
+.add-to-cart-btn{background:#B47B2A;color:#fff;border:none;width:100%;padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.add-to-cart-btn:hover{background:#9a6820;}
+.add-to-cart-btn.added{background:#1a2e1a;color:#4caf50;}
+
+/* Bouton panier flottant */
+.cart-fab{
+  position:fixed;bottom:80px;right:16px;z-index:300;
+  background:#B47B2A;color:#fff;border:none;
+  width:56px;height:56px;border-radius:50%;
+  font-size:22px;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.4);
+  display:none;align-items:center;justify-content:center;
+  transition:transform 0.2s;
+}
+.cart-fab:hover{transform:scale(1.08);}
+.cart-fab.visible{display:flex;}
+.cart-badge{
+  position:absolute;top:-4px;right:-4px;
+  background:#fff;color:#B47B2A;
+  width:20px;height:20px;border-radius:50%;
+  font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Drawer panier */
+.cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;
+  width:100%;max-width:420px;
+  background:#111;z-index:400;
+  transform:translateX(100%);transition:transform 0.35s ease;
+  display:flex;flex-direction:column;
+  box-shadow:-8px 0 32px rgba(0,0,0,0.5);
+}
+.cart-drawer.open{transform:translateX(0);}
+.cart-drawer-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.25rem 1.5rem;border-bottom:1px solid #1e1e1e;
+}
+.cart-drawer-header h3{font-size:17px;font-weight:600;color:#fff;}
+.cart-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:24px;cursor:pointer;}
+.cart-close:hover{color:#fff;}
+.cart-items{flex:1;overflow-y:auto;padding:1rem 1.5rem;}
+.cart-empty{text-align:center;color:rgba(255,255,255,0.4);font-size:14px;padding:3rem 0;}
+.cart-item{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 0;border-bottom:1px solid #1e1e1e;gap:12px;}
+.cart-item-name{font-size:14px;color:#fff;flex:1;line-height:1.4;}
+.cart-item-qty{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.qty-btn{background:#1e1e1e;border:none;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.qty-btn:hover{background:#B47B2A;}
+.qty-num{font-size:14px;color:#fff;min-width:20px;text-align:center;}
+.cart-item-remove{background:none;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:18px;flex-shrink:0;}
+.cart-item-remove:hover{color:#ff4444;}
+.cart-footer{padding:1.25rem 1.5rem;border-top:1px solid #1e1e1e;}
+.cart-total{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:1rem;text-align:center;}
+.cart-checkout-btn{width:100%;background:#B47B2A;color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.cart-checkout-btn:hover{background:#9a6820;}
+
+/* Overlay */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:390;display:none;}
+.cart-overlay.active{display:block;}
+
+/* Formulaire commande */
+.order-modal{
+  position:fixed;inset:0;z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.75);
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+  padding:1rem;
+}
+.order-modal.open{opacity:1;pointer-events:all;}
+.order-modal-card{
+  background:#111;border:1px solid #2a2a2a;border-radius:16px;
+  padding:2rem;width:100%;max-width:480px;
+  max-height:90vh;overflow-y:auto;
+}
+.order-modal-card h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.order-modal-card p{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;}
+.order-recap{background:#1a1a1a;border-radius:8px;padding:1rem;margin-bottom:1.25rem;}
+.order-recap-title{font-size:11px;color:#B47B2A;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;}
+.order-recap-item{font-size:13px;color:rgba(255,255,255,0.7);padding:4px 0;}
+.order-field{margin-bottom:1rem;}
+.order-field label{display:block;font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.order-field input,.order-field textarea{
+  width:100%;background:#1a1a1a;border:1px solid #2a2a2a;
+  border-radius:8px;padding:11px 14px;font-size:14px;color:#fff;
+}
+.order-field input:focus,.order-field textarea:focus{outline:none;border-color:#B47B2A;}
+.order-field textarea{height:80px;resize:none;}
+.order-submit{width:100%;background:#B47B2A;color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:0.5rem;}
+.order-submit:hover{background:#9a6820;}
+.order-submit:disabled{background:#555;cursor:not-allowed;}
+.order-cancel{width:100%;background:transparent;color:rgba(255,255,255,0.4);border:none;padding:10px;font-size:14px;cursor:pointer;margin-top:8px;}
+.order-cancel:hover{color:#fff;}
+.order-success{display:none;text-align:center;padding:1rem 0;}
+.order-success h4{font-size:18px;font-weight:700;color:#4caf50;margin-bottom:0.75rem;}
+.order-success p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;}
+
+@media(max-width:480px){
+  .cart-drawer{max-width:100%;}
+  .order-modal-card{padding:1.5rem;}
+}
+
 </style>
 </head>
 <body>
@@ -750,7 +853,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="footer-logo">MISS <span>R</span> EVENTS</div>
  <p>Agence événementielle & surprises<br>Sodjatimé, Cotonou, Bénin</p>
       <div class="footer-social">
-        <a href="https://wa.me/22901667331120" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/22966733120" target="_blank" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.17-.19.71-.83.9-1.12.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.92.28.14.47.21.54.33.07.12.07.69-.17 1.37z"/></svg>
         </a>
         <a href="https://www.facebook.com/share/18SB3R3Gi4/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
@@ -1344,7 +1447,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <span class="section-label">Miss R Events</span>
  <h1>Boutique Surprises<br>& <em>Cadeaux</em></h1>
  <p>Bouquets, cadeaux sur mesure, pâtisserie, décoration d'événements et plus.<br>Commandez sur WhatsApp, livraison possible à Cotonou.</p>
- <a class="rdv-wa-btn" href="https://wa.me/22901667331120" target="_blank">Commander sur WhatsApp</a>
+ <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">Commander sur WhatsApp</a>
  </div>
 
  <!-- FILTRES -->
@@ -1391,7 +1494,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet roses rouges & jaunes</h4>
  <p>Roses fraîches rouge et jaune, emballage premium et gypsophile.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%20roses%20rouges%20%26%20jaunes" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges & jaunes')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour">
@@ -1401,7 +1504,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet 5 roses rouges</h4>
  <p>Bouquet compact de roses rouges fraîches, idéal déclaration d'amour.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%205%20roses%20rouges" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet 5 roses rouges')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour,felicitations">
@@ -1411,7 +1514,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet roses & chrysanthèmes</h4>
  <p>Mélange roses rouges et chrysanthèmes roses, emballage marbré doré.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%20roses%20%26%20chrysanth%C3%A8mes" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses & chrysanthèmes')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour">
@@ -1421,7 +1524,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet roses rouges premium</h4>
  <p>Grand bouquet de roses rouges fraîches, gypsophile abondante.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%20roses%20rouges%20premium" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges premium')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour,anniversaire">
@@ -1431,7 +1534,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet roses rouges XL</h4>
  <p>Bouquet généreux de roses rouges, emballage rayé rouge et blanc.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%20roses%20rouges%20XL" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges XL')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour,felicitations">
@@ -1441,7 +1544,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Bouquet avec ruban dédicace</h4>
  <p>Bouquet de roses crème avec ruban message personnalisé imprimé.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Bouquet%20avec%20ruban%20d%C3%A9dicace" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet avec ruban dédicace')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
@@ -1451,7 +1554,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Couronne deuil, Hommage</h4>
  <p>Couronne de roses blanches et chrysanthèmes, ruban message personnalisable.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Couronne%20deuil%20%E2%80%94%20Hommage" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Hommage')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
@@ -1461,7 +1564,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Couronne deuil, Repose en paix</h4>
  <p>Couronne florale blanche élégante avec ruban de condoléances.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Couronne%20deuil%20%E2%80%94%20Repose%20en%20paix" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Repose en paix')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
@@ -1471,7 +1574,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Couronne deuil, Reconnaissance</h4>
  <p>Grande couronne blanche et crème, ruban institutionnel personnalisé.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Couronne%20deuil%20%E2%80%94%20Reconnaissance" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Reconnaissance')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="felicitations,surprise">
@@ -1481,7 +1584,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Panier fruits & Ferrero Rocher</h4>
  <p>Panier garni de fruits frais variés et chocolats Ferrero Rocher.</p>
  <div class="product-tags"><span class="ptag">Félicitations</span> <span class="ptag">Surprise</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Panier%20fruits%20%26%20Ferrero%20Rocher" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits & Ferrero Rocher')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="surprise,felicitations">
@@ -1491,7 +1594,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Panier de fruits frais</h4>
  <p>Sélection de fruits de saison, panier tressé traditionnel.</p>
  <div class="product-tags"><span class="ptag">Surprise</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Panier%20de%20fruits%20frais" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier de fruits frais')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="surprise">
@@ -1501,7 +1604,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Panier fruits gourmand</h4>
  <p>Fruits frais variés et fraises, présentation généreuse.</p>
  <div class="product-tags"><span class="ptag">Surprise</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Panier%20fruits%20gourmand" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits gourmand')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="surprise,felicitations">
@@ -1511,7 +1614,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Panier fruits & épicerie fine</h4>
  <p>Fruits frais accompagnés de produits gourmands sélectionnés.</p>
  <div class="product-tags"><span class="ptag">Surprise</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Panier%20fruits%20%26%20%C3%A9picerie%20fine" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits & épicerie fine')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="religieux,felicitations">
@@ -1521,7 +1624,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Panier Ramadan Kareem</h4>
  <p>Panier de fruits emballé avec ruban Ramadan Kareem, prêt à offrir.</p>
  <div class="product-tags"><span class="ptag">Fêtes religieuses</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Panier%20Ramadan%20Kareem" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier Ramadan Kareem')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="religieux">
@@ -1531,7 +1634,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Coffret gourmand Ramadan</h4>
  <p>Coffret de douceurs et produits sélectionnés, ruban Ramadan Kareem.</p>
  <div class="product-tags"><span class="ptag">Fêtes religieuses</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Coffret%20gourmand%20Ramadan" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Coffret gourmand Ramadan')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="amour,felicitations">
@@ -1541,7 +1644,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Coffret bouquet d'argent, Cœur</h4>
  <p>Billets pliés en forme de cœur dans coffret message personnalisé.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Félicitations</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Coffret%20bouquet%20d%27argent%20%E2%80%94%20C%C5%93ur" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Coffret bouquet d\'argent — Cœur')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="mariage,amour">
@@ -1551,7 +1654,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Coffret argent & pagne</h4>
  <p>Bouquet d'argent, pagne traditionnel et roses, coffret prestige.</p>
  <div class="product-tags"><span class="ptag">Mariage</span> <span class="ptag">Amour & St-Valentin</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Coffret%20argent%20%26%20pagne" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Coffret argent & pagne')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="anniversaire">
@@ -1561,7 +1664,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Coffret bouquet d'argent, Anniversaire</h4>
  <p>Billets en rouleaux décorés, chocolats Ferrero, topper Happy Birthday.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Coffret%20bouquet%20d%27argent%20%E2%80%94%20Anniversaire" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Coffret bouquet d\'argent — Anniversaire')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="amour">
@@ -1571,7 +1674,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Coffret romantique complet</h4>
  <p>Peluche, pagne, Ferrero Rocher et bouquet d'argent en coffret cadeau.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Coffret%20romantique%20complet" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Coffret romantique complet')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="amour,surprise">
@@ -1581,7 +1684,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Box petit-déjeuner surprise</h4>
  <p>Viennoiseries, jus, fruits frais et mug message, livré en box cadeau.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Surprise</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Box%20petit-d%C3%A9jeuner%20surprise" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Box petit-déjeuner surprise')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="anniversaire">
@@ -1591,7 +1694,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Box anniversaire complète</h4>
  <p>Gâteau personnalisé, vin, Ferrero Rocher et rose en coffret transparent.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20Box%20anniversaire%20compl%C3%A8te" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Box anniversaire complète')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="patisserie" data-occ="anniversaire">
@@ -1601,7 +1704,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Gâteau calendrier personnalisé</h4>
  <p>Gâteau crème blanche avec calendrier du mois et message doré.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20G%C3%A2teau%20calendrier%20personnalis%C3%A9" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Gâteau calendrier personnalisé')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="patisserie" data-occ="anniversaire">
@@ -1611,7 +1714,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Gâteau fraises fraîches</h4>
  <p>Gâteau crème ombré rose-or, décoré de fraises fraîches et perles dorées.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20G%C3%A2teau%20fraises%20fra%C3%AEches" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Gâteau fraises fraîches')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="patisserie" data-occ="anniversaire">
@@ -1621,7 +1724,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Gâteau perles dorées & or comestible</h4>
  <p>Gâteau deux tons gris-blanc, perles dorées et feuille d'or comestible.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20G%C3%A2teau%20perles%20dor%C3%A9es%20%26%20or%20comestible" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Gâteau perles dorées & or comestible')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="patisserie" data-occ="anniversaire">
@@ -1631,7 +1734,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Gâteau message personnalisé</h4>
  <p>Gâteau crème blanche, écriture dorée sur mesure pour l'occasion.</p>
  <div class="product-tags"><span class="ptag">Anniversaire</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20G%C3%A2teau%20message%20personnalis%C3%A9" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Gâteau message personnalisé')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="organisation" data-occ="amour,surprise">
@@ -1641,7 +1744,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Décoration chambre romantique</h4>
  <p>Ballons rouges, lettrage I LOVE YOU et pétales en cœur sur le lit.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Surprise</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20D%C3%A9coration%20chambre%20romantique" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Décoration chambre romantique')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="organisation" data-occ="amour,surprise">
@@ -1651,13 +1754,13 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h4>Décoration romantique complète</h4>
  <p>Plafond de ballons rouges, rideaux dorés, ambiance surprise totale.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Surprise</span></div>
- <a class="product-order-btn" href="https://wa.me/22901667331120?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20%3A%20D%C3%A9coration%20romantique%20compl%C3%A8te" target="_blank">Commander</a>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Décoration romantique complète')">Ajouter au panier</button>
  </div>
 </div>
  </div>
  <div class="no-results" id="no-results" style="display:none;">
  <p>Aucun produit ne correspond à cette combinaison pour le moment.</p>
- <a class="rdv-wa-btn" href="https://wa.me/22901667331120" target="_blank">Demander sur WhatsApp </a>
+ <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">Demander sur WhatsApp </a>
  </div>
  </div>
 
@@ -1667,7 +1770,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <h3>Vous ne trouvez pas ce que vous cherchez ?</h3>
  <p>Toutes nos créations sont personnalisables. Décrivez votre idée sur WhatsApp,<br>on vous répond rapidement avec les tarifs et disponibilités.</p>
  <div class="boutique-cta-btns">
- <a class="rdv-wa-btn big" href="https://wa.me/22901667331120" target="_blank">
+ <a class="rdv-wa-btn big" href="https://wa.me/22966733120" target="_blank">
  Commander sur WhatsApp
  </a>
  <button class="cta-ghost-dark" onclick="goTo('reservation')">
@@ -1684,7 +1787,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="footer-logo">MISS <span>R</span> EVENTS</div>
  <p>Agence événementielle & surprises<br>Sodjatimé, Cotonou, Bénin</p>
       <div class="footer-social">
-        <a href="https://wa.me/22901667331120" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/22966733120" target="_blank" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.17-.19.71-.83.9-1.12.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.92.28.14.47.21.54.33.07.12.07.69-.17 1.37z"/></svg>
         </a>
         <a href="https://www.facebook.com/share/18SB3R3Gi4/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
@@ -1806,7 +1909,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 
  <div class="rdv-direct">
  <p>Vous préférez nous écrire directement ?</p>
- <a class="rdv-wa-btn" href="https://wa.me/22901667331120" target="_blank">
+ <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">
  Écrire sur WhatsApp
  </a>
  </div>
@@ -1828,6 +1931,80 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 
  </div><!-- /rdv-wrap -->
 </div></div>
+
+
+<!-- BOUTON PANIER FLOTTANT -->
+<button class="cart-fab" id="cart-fab" onclick="toggleCart()">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+  <span class="cart-badge" id="cart-badge">0</span>
+</button>
+
+<!-- OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<!-- DRAWER PANIER -->
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Mon panier</h3>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">Votre panier est vide</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total" id="cart-total"></div>
+    <button class="cart-checkout-btn" onclick="openOrderModal()">Valider ma commande</button>
+  </div>
+</div>
+
+<!-- MODAL COMMANDE -->
+<div class="order-modal" id="order-modal">
+  <div class="order-modal-card">
+    <div id="order-form-wrap">
+      <h3>Finaliser la commande</h3>
+      <p>Remplissez vos informations. Nous vous contacterons pour confirmer et livrer.</p>
+      <div class="order-recap" id="order-recap">
+        <div class="order-recap-title">Votre commande</div>
+        <div id="order-recap-items"></div>
+      </div>
+      <div class="order-field">
+        <label>Votre prénom et nom</label>
+        <input type="text" id="order-nom" placeholder="Ex : Aïssatou Koffi"/>
+      </div>
+      <div class="order-field">
+        <label>Votre numéro WhatsApp</label>
+        <input type="tel" id="order-tel" placeholder="+229 XX XX XX XX"/>
+      </div>
+      <div class="order-field">
+        <label>Votre quartier / ville</label>
+        <input type="text" id="order-ville" placeholder="Ex : Akpakpa, Cotonou"/>
+      </div>
+      <div class="order-field">
+        <label>Message ou précisions (facultatif)</label>
+        <textarea id="order-msg" placeholder="Couleur préférée, message sur le gâteau, heure de livraison souhaitée..."></textarea>
+      </div>
+      <!-- Formspree -->
+      <form id="formspree-form" action="https://formspree.io/f/maqakwdw" method="POST" style="display:none;">
+        <input type="hidden" name="commande" id="fs-commande"/>
+        <input type="hidden" name="nom" id="fs-nom"/>
+        <input type="hidden" name="whatsapp" id="fs-tel"/>
+        <input type="hidden" name="quartier" id="fs-ville"/>
+        <input type="hidden" name="message" id="fs-msg"/>
+        <input type="hidden" name="_replyto" id="fs-replyto"/>
+        <input type="hidden" name="_subject" value="Nouvelle commande Miss R Events"/>
+        <input type="hidden" name="email_principal" value="noesschillem@gmail.com"/>
+        <input type="hidden" name="_cc" value="missrentreprises@gmail.com"/>
+      </form>
+      <button class="order-submit" id="order-submit-btn" onclick="submitOrder()">Envoyer ma commande</button>
+      <button class="order-cancel" onclick="closeOrderModal()">Annuler</button>
+    </div>
+    <div class="order-success" id="order-success">
+      <h4>Commande reçue !</h4>
+      <p>Merci ! Nous avons bien reçu votre commande.<br>Un membre de l'équipe Miss R Events vous contactera sur WhatsApp très prochainement pour confirmer et organiser la livraison.</p>
+      <button class="cart-checkout-btn" style="margin-top:1.5rem;" onclick="closeOrderModal();resetCart();">Fermer</button>
+    </div>
+  </div>
+</div>
 
 <script>
 const navIds={home:'nl-home',services:'nl-services',galerie:'nl-galerie',boutique:'nl-boutique',contact:'nl-contact'};
@@ -1882,6 +2059,169 @@ function submitRdv() {
  btn.disabled = true;
  btn.textContent = 'Demande envoyée';
  document.getElementById('rdv-success').style.display = 'block';
+}
+
+
+/* ===== SYSTÈME PANIER JS ===== */
+let cart = [];
+
+function addToCart(productName) {
+  const existing = cart.find(i => i.name === productName);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({name: productName, qty: 1});
+  }
+  updateCartUI();
+  // Feedback visuel sur le bouton
+  const btns = document.querySelectorAll('.add-to-cart-btn');
+  btns.forEach(btn => {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(productName.replace(/'/g, "\'"))) {
+      btn.textContent = 'Ajouté !';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = 'Ajouter au panier';
+        btn.classList.remove('added');
+      }, 1800);
+    }
+  });
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  const fab = document.getElementById('cart-fab');
+  const badge = document.getElementById('cart-badge');
+  badge.textContent = total;
+  if (total > 0) {
+    fab.classList.add('visible');
+  } else {
+    fab.classList.remove('visible');
+  }
+  // Mettre à jour les items dans le drawer
+  const container = document.getElementById('cart-items');
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="cart-empty">Votre panier est vide</div>';
+    document.getElementById('cart-total').textContent = '';
+    return;
+  }
+  container.innerHTML = cart.map((item, idx) => `
+    <div class="cart-item">
+      <span class="cart-item-name">${item.name}</span>
+      <div class="cart-item-qty">
+        <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+      </div>
+      <button class="cart-item-remove" onclick="removeItem(${idx})">×</button>
+    </div>
+  `).join('');
+  document.getElementById('cart-total').textContent = total + ' article' + (total > 1 ? 's' : '') + ' dans votre panier';
+}
+
+function changeQty(idx, delta) {
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  updateCartUI();
+}
+
+function removeItem(idx) {
+  cart.splice(idx, 1);
+  updateCartUI();
+}
+
+function toggleCart() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-overlay');
+  const isOpen = drawer.classList.contains('open');
+  if (isOpen) {
+    closeCart();
+  } else {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+  }
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('active');
+}
+
+function openOrderModal() {
+  if (cart.length === 0) return;
+  closeCart();
+  // Remplir le récap
+  const recapEl = document.getElementById('order-recap-items');
+  recapEl.innerHTML = cart.map(i =>
+    `<div class="order-recap-item">${i.qty}x ${i.name}</div>`
+  ).join('');
+  document.getElementById('order-modal').classList.add('open');
+  document.getElementById('order-form-wrap').style.display = 'block';
+  document.getElementById('order-success').style.display = 'none';
+}
+
+function closeOrderModal() {
+  document.getElementById('order-modal').classList.remove('open');
+}
+
+function submitOrder() {
+  const nom = document.getElementById('order-nom').value.trim();
+  const tel = document.getElementById('order-tel').value.trim();
+  const ville = document.getElementById('order-ville').value.trim();
+  const msg = document.getElementById('order-msg').value.trim();
+
+  if (!nom || !tel || !ville) {
+    alert('Merci de renseigner votre nom, WhatsApp et quartier.');
+    return;
+  }
+
+  const commandeText = cart.map(i => i.qty + 'x ' + i.name).join(', ');
+
+  // Remplir le formulaire Formspree
+  document.getElementById('fs-commande').value = commandeText;
+  document.getElementById('fs-nom').value = nom;
+  document.getElementById('fs-tel').value = tel;
+  document.getElementById('fs-ville').value = ville;
+  document.getElementById('fs-msg').value = msg || 'Aucun message';
+  document.getElementById('fs-replyto').value = tel;
+
+  const btn = document.getElementById('order-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+
+  // Envoyer via Formspree avec fetch
+  const form = document.getElementById('formspree-form');
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  }).then(res => {
+    if (res.ok) {
+      document.getElementById('order-form-wrap').style.display = 'none';
+      document.getElementById('order-success').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma commande';
+      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+    }
+  }).catch(() => {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma commande';
+    alert('Problème de connexion. Vérifiez votre réseau et réessayez.');
+  });
+}
+
+function resetCart() {
+  cart = [];
+  updateCartUI();
+  document.getElementById('order-nom').value = '';
+  document.getElementById('order-tel').value = '';
+  document.getElementById('order-ville').value = '';
+  document.getElementById('order-msg').value = '';
+  const btn = document.getElementById('order-submit-btn');
+  btn.disabled = false;
+  btn.textContent = 'Envoyer ma commande';
 }
 
 function toggleFaq(el) {
