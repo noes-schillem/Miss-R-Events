@@ -2304,6 +2304,31 @@ function spLoop() {
 }
 
 setTimeout(spLoop, rand(8000, 18000));
+
+/* Préchargement silencieux des images en arrière-plan.
+   Décode toutes les images du site pendant que l'utilisateur
+   est sur la page d'accueil, pour que Boutique/Galerie
+   s'affichent instantanément au premier clic. */
+(function preloadImages(){
+  function decodeAll(){
+    var imgs = document.querySelectorAll('img[src^="data:image"]');
+    var i = 0;
+    function step(deadline){
+      while (i < imgs.length && (deadline.timeRemaining() > 0 || deadline.didTimeout)) {
+        var im = imgs[i++];
+        if (im.decode) { im.decode().catch(function(){}); }
+      }
+      if (i < imgs.length) {
+        if (window.requestIdleCallback) requestIdleCallback(step, {timeout: 500});
+        else setTimeout(function(){ step({timeRemaining:function(){return 50;}, didTimeout:true}); }, 50);
+      }
+    }
+    if (window.requestIdleCallback) requestIdleCallback(step, {timeout: 500});
+    else setTimeout(function(){ step({timeRemaining:function(){return 50;}, didTimeout:true}); }, 200);
+  }
+  if (document.readyState === 'complete') decodeAll();
+  else window.addEventListener('load', decodeAll);
+})();
 </script>
 
 </body>
