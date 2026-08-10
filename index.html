@@ -5,48 +5,57 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Miss R Events, Agence événementielle Cotonou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css"/></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{max-width:100%;overflow-x:hidden;}
-body{font-family:system-ui,sans-serif;color:#1a1a1a;background:#fff;}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:100;}
-.logo{font-size:18px;font-weight:600;letter-spacing:1px;cursor:pointer;text-decoration:none;color:#1a1a1a;}
+body{font-family:'Inter',system-ui,sans-serif;color:#F2F0EA;background:#0d0d0d;}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid #1a1a1a;background:#0d0d0d;position:sticky;top:0;z-index:100;}
+.nav-burger{display:none;}
+.nav-links-mobile-cta{display:none;}
+.logo{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;letter-spacing:1px;cursor:pointer;text-decoration:none;color:#fff;}
 .logo span{color:#B47B2A;}
 .nav-links{display:flex;gap:1.5rem;list-style:none;}
-.nav-links a{font-size:14px;color:#666;text-decoration:none;cursor:pointer;}
-.nav-links a:hover,.nav-links a.active-link{color:#1a1a1a;font-weight:500;}
-.nav-cta{background:#1a1a1a;color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;}
+.nav-links a{font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;cursor:pointer;transition:color 0.2s ease;}
+.nav-links a:hover,.nav-links a.active-link{color:#B47B2A;font-weight:500;}
+.nav-cta{background:#B47B2A;color:#0d0d0d;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s ease;}
+.nav-cta:hover{background:#c98f3a;transform:translateY(-1px);}
 .page{display:none;}
 .page.active{display:block;}
-.hero{padding:5rem 2rem;text-align:center;border-bottom:1px solid #eee;}
+.hero{padding:5rem 2rem;text-align:center;border-bottom:1px solid #1a1a1a;}
 .hero-tag{font-size:12px;letter-spacing:2px;color:#B47B2A;margin-bottom:1rem;text-transform:uppercase;}
 .hero h1{font-size:40px;font-weight:500;line-height:1.2;margin-bottom:1rem;}
 .hero h1 em{font-style:normal;color:#B47B2A;}
-.hero p{font-size:16px;color:#666;max-width:480px;margin:0 auto 2rem;line-height:1.7;}
+.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 2rem;line-height:1.7;}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{background:#1a1a1a;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;cursor:pointer;}
-.btn-secondary{background:transparent;color:#1a1a1a;border:1px solid #ccc;padding:12px 28px;border-radius:8px;font-size:14px;cursor:pointer;}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #eee;}
-.stat{padding:2rem;text-align:center;border-right:1px solid #eee;}
+.btn-primary{background:#B47B2A;color:#0d0d0d;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;}
+.btn-primary:hover{background:#c98f3a;transform:translateY(-1px);}
+.btn-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:12px 28px;border-radius:8px;font-size:14px;cursor:pointer;transition:all 0.2s ease;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #1a1a1a;}
+.stat{padding:2rem;text-align:center;border-right:1px solid #1a1a1a;}
 .stat:last-child{border-right:none;}
 .stat-num{font-size:32px;font-weight:500;color:#B47B2A;}
-.stat-label{font-size:13px;color:#666;margin-top:4px;}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.55);margin-top:4px;}
 .section-wrap{padding:4rem 2rem;}
-.section-wrap.alt{background:#f9f9f7;}
+.section-wrap.alt{background:#000;}
 .section-header{text-align:center;margin-bottom:3rem;}
 .section-header h2{font-size:28px;font-weight:500;margin-bottom:0.5rem;}
-.section-header p{font-size:14px;color:#666;}
+.section-header p{font-size:14px;color:rgba(255,255,255,0.6);}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:900px;margin:0 auto;}
-.service-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.5rem;}
+.service-card{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:1.5rem;transition:transform 0.25s ease,border-color 0.25s ease;}
+.service-card:hover{transform:translateY(-4px);border-color:#B47B2A;}
 .service-card.clickable{cursor:pointer;transition:border-color 0.2s,transform 0.2s;position:relative;}
 .service-card.clickable:hover{border-color:#B47B2A;transform:translateY(-3px);}
 .service-link{display:inline-block;margin-top:0.75rem;font-size:13px;color:#B47B2A;font-weight:600;}
 .service-icon{width:40px;height:40px;background:#FDF3E3;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
 .service-icon i{font-size:20px;color:#B47B2A;}
 .service-card h3{font-size:15px;font-weight:500;margin-bottom:8px;}
-.service-card p{font-size:13px;color:#666;line-height:1.6;}
+.service-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;}
 /* GALERIE 2 PAR 2 */
 .gallery-container{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
 .gpair{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -57,32 +66,33 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2
 .gi:hover.go{opacity:1;}
 .go span{color:#fff;font-size:13px;font-weight:500;}
 .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:0 auto;}
-.testimonial-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.5rem;}
+.testimonial-card{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:1.5rem;}
 .stars{color:#B47B2A;font-size:14px;margin-bottom:0.75rem;}
-.testimonial-card p{font-size:14px;color:#666;line-height:1.7;margin-bottom:1rem;}
+.testimonial-card p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1rem;}
 .testimonial-author{display:flex;align-items:center;gap:10px;}
 .avatar{width:36px;height:36px;border-radius:50%;background:#FDF3E3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#B47B2A;flex-shrink:0;}
 .author-info{font-size:13px;font-weight:500;}
-.author-role{font-size:12px;color:#666;}
+.author-role{font-size:12px;color:rgba(255,255,255,0.5);}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:900px;margin:0 auto;}
-.contact-item{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.25rem;display:flex;gap:12px;align-items:flex-start;}
+.contact-item{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:1.25rem;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.2s ease;}
+.contact-item:hover{border-color:#B47B2A;}
 .contact-item i{font-size:20px;color:#B47B2A;margin-top:2px;flex-shrink:0;}
-.contact-label{font-size:12px;color:#666;margin-bottom:4px;}
+.contact-label{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px;}
 .contact-value{font-size:14px;font-weight:500;}
 .form-page-wrap{max-width:620px;margin:0 auto;padding:3rem 2rem;}
 .form-page-title h1{font-size:28px;font-weight:500;margin-bottom:0.5rem;}
-.form-page-title p{font-size:14px;color:#666;margin-bottom:2rem;}
-.form-card{background:#f9f9f7;border:1px solid #eee;border-radius:12px;padding:2rem;}
+.form-page-title p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:2rem;}
+.form-card{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:2rem;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-group{margin-bottom:4px;}
-.form-group label{display:block;font-size:13px;color:#666;margin-bottom:6px;}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;}
+.form-group label{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 12px;border:1px solid #2a2a2a;border-radius:8px;font-size:14px;background:#1a1a1a;color:#fff;}
 .form-group textarea{height:110px;resize:vertical;}
 .form-full{grid-column:1/-1;}
-.submit-btn{width:100%;background:#1a1a1a;color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;cursor:pointer;margin-top:12px;}
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#666;cursor:pointer;margin-bottom:1.5rem;text-decoration:none;}
+.submit-btn{width:100%;background:#B47B2A;color:#0d0d0d;font-weight:600;border:none;padding:14px;border-radius:8px;font-size:15px;cursor:pointer;transition:all 0.2s ease;margin-top:12px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);cursor:pointer;margin-bottom:1.5rem;text-decoration:none;}
 .success-msg{display:none;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;padding:14px;border-radius:8px;font-size:14px;margin-top:14px;text-align:center;}
-footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-content:space-between;font-size:13px;color:#888;}
+footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.4);}
 
 /* ===== PAGE ACCUEIL — PAGE DE VENTE ===== */
 /* HERO DARK */
@@ -239,9 +249,17 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 @media(max-width:768px){
 .social-proof{left:10px;right:10px;bottom:10px;max-width:none;}
 
-.nav-links{order:3;width:100%;justify-content:center;gap:1rem;flex-wrap:wrap;padding-top:0.5rem;border-top:1px solid #eee;}
-.nav-links a{font-size:13px;}
-.nav-cta{padding:7px 14px;font-size:12px;white-space:nowrap;}
+.nav-links{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;background:#0d0d0d;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;padding:5.5rem 2rem 2rem;border-left:1px solid #1a1a1a;transition:right 0.3s ease;z-index:200;overflow-y:auto;}
+.nav-links.mobile-open{right:0;}
+.nav-links li{width:100%;}
+.nav-links a{font-size:16px;display:block;padding:14px 0;border-bottom:1px solid #1a1a1a;width:100%;}
+.nav-links-mobile-cta{margin-top:1.25rem;}
+.nav-links-mobile-cta .nav-cta{width:100%;text-align:center;padding:13px;font-size:14px;}
+.nav-cta-desktop{display:none;}
+.nav-burger{display:flex;align-items:center;justify-content:center;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;z-index:210;padding:4px;}
+.nav-links-mobile-cta{display:block;}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;opacity:0;transition:opacity 0.3s ease;}
+.nav-overlay.open{display:block;opacity:1;}
 .logo{font-size:15px;}
 .hero-content{padding:3.5rem 1.25rem 2.25rem;}
 .hero-dark{min-height:auto;}
@@ -407,8 +425,16 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 
 
 /* ===== FILTRES BOUTIQUE ===== */
-.filters-wrap{background:#000;border-bottom:1px solid #1a1a1a;padding:1.5rem 2rem;position:sticky;top:0;z-index:50;}
+.filters-wrap{background:#000;border-bottom:1px solid #1a1a1a;padding:1rem 2rem;position:sticky;top:0;z-index:50;}
 .filters-inner{max-width:1100px;margin:0 auto;}
+.filters-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:#141414;border:1px solid #2a2a2a;border-radius:10px;padding:12px 16px;color:rgba(255,255,255,0.75);font-size:13.5px;cursor:pointer;transition:all 0.2s ease;}
+.filters-toggle:hover{border-color:#B47B2A;color:#fff;}
+.filters-toggle span{display:flex;align-items:center;gap:8px;}
+.filters-toggle i{font-size:16px;}
+#filters-toggle-icon{transition:transform 0.25s ease;}
+.filters-toggle.open #filters-toggle-icon{transform:rotate(180deg);}
+.filters-panel{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+.filters-panel.open{max-height:600px;padding-top:1rem;}
 .filter-group{margin-bottom:0.85rem;}
 .filter-group:last-of-type{margin-bottom:0.5rem;}
 .filter-label{display:block;font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.5rem;}
@@ -434,7 +460,8 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 .product-card:hover.product-img img{transform:scale(1.05);}
 .product-info{padding:1.1rem;}
 .product-cat-label{font-size:10px;color:#B47B2A;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
-.product-info h4{font-size:15px;font-weight:600;color:#fff;margin:0.4rem 0 0.5rem;line-height:1.3;}
+.product-info h4{font-size:15px;font-weight:600;color:#fff;margin:0.4rem 0 0.3rem;line-height:1.3;}
+.product-price{display:block;font-size:16px;font-weight:700;color:#B47B2A;margin-bottom:0.5rem;}
 .product-info p{font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:0.75rem;}
 .product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;}
 .ptag{font-size:10.5px;color:rgba(255,255,255,0.45);background:#1a1a1a;border:1px solid #2a2a2a;padding:3px 9px;border-radius:12px;}
@@ -580,19 +607,24 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 
 <nav>
  <a class="logo" onclick="goTo('home')">MISS <span>R</span> EVENTS</a>
- <ul class="nav-links">
- <li><a id="nl-home" onclick="goTo('home')" class="active-link">Accueil</a></li>
+ <ul class="nav-links" id="nav-links">
+ <li><a id="nl-home" onclick="goTo('home')">Accueil</a></li>
  <li><a id="nl-services" onclick="goTo('services')">Services</a></li>
  <li><a id="nl-galerie" onclick="goTo('galerie')">Galerie</a></li>
- <li><a id="nl-boutique" onclick="goTo('boutique')">Boutique</a></li>
+ <li><a id="nl-boutique" onclick="goTo('boutique')" class="active-link">Boutique</a></li>
  <li><a id="nl-contact" onclick="goTo('contact')">Contact</a></li>
+ <li class="nav-links-mobile-cta"><button class="nav-cta" onclick="goTo('reservation')">Prendre RDV</button></li>
  </ul>
- <button class="nav-cta" onclick="goTo('reservation')">Prendre RDV</button>
+ <button class="nav-cta nav-cta-desktop" onclick="goTo('reservation')">Prendre RDV</button>
+ <button class="nav-burger" id="nav-burger" onclick="toggleMobileNav()" aria-label="Menu">
+ <i class="ti ti-menu-2" id="nav-burger-icon"></i>
+ </button>
 </nav>
+<div class="nav-overlay" id="nav-overlay" onclick="toggleMobileNav()"></div>
 
 
 <!-- ACCUEIL — PAGE DE VENTE -->
-<div id="page-home" class="page active">
+<div id="page-home" class="page">
 
  <!-- HERO DARK -->
  <section class="hero-dark">
@@ -1443,7 +1475,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 
 
 <!-- PAGE BOUTIQUE -->
-<div id="page-boutique" class="page">
+<div id="page-boutique" class="page active">
 
  <div class="boutique-hero">
  <span class="section-label">Miss R Events</span>
@@ -1455,6 +1487,11 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <!-- FILTRES -->
  <div class="filters-wrap">
  <div class="filters-inner">
+ <button class="filters-toggle" id="filters-toggle" onclick="toggleFilters()">
+ <span><i class="ti ti-adjustments-horizontal"></i> Filtrer par catégorie ou occasion</span>
+ <i class="ti ti-chevron-down" id="filters-toggle-icon"></i>
+ </button>
+ <div class="filters-panel" id="filters-panel">
  <div class="filter-group">
  <span class="filter-label">Catégorie</span>
  <div class="filter-row">
@@ -1482,7 +1519,8 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
 <button class="occ-btn" data-occ="surprise" onclick="filterOcc('surprise')">Surprise</button>
  </div>
  </div>
- <div class="filter-count" id="filter-count">27 produits disponibles</div>
+ <div class="filter-count" id="filter-count">30 produits disponibles</div>
+ </div>
  </div>
  </div>
 
@@ -1494,6 +1532,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
  <h4>Bouquet roses rouges & jaunes</h4>
+ <span class="product-price">42 000 FCFA</span>
  <p>Roses fraîches rouge et jaune, emballage premium et gypsophile.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges & jaunes')">Ajouter au panier</button>
@@ -1504,6 +1543,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
  <h4>Bouquet 5 roses rouges</h4>
+ <span class="product-price">24 500 FCFA</span>
  <p>Bouquet compact de roses rouges fraîches, idéal déclaration d'amour.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet 5 roses rouges')">Ajouter au panier</button>
@@ -1514,6 +1554,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
  <h4>Bouquet roses & chrysanthèmes</h4>
+ <span class="product-price">50 000 FCFA</span>
  <p>Mélange roses rouges et chrysanthèmes roses, emballage marbré doré.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Félicitations</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses & chrysanthèmes')">Ajouter au panier</button>
@@ -1524,6 +1565,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
  <h4>Bouquet roses rouges premium</h4>
+ <span class="product-price">35 000 FCFA</span>
  <p>Grand bouquet de roses rouges fraîches, gypsophile abondante.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges premium')">Ajouter au panier</button>
@@ -1534,49 +1576,54 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
  <h4>Bouquet roses rouges XL</h4>
+ <span class="product-price">100 000 FCFA</span>
  <p>Bouquet généreux de roses rouges, emballage rayé rouge et blanc.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Anniversaire</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet roses rouges XL')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="amour,felicitations">
- <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-ruban-dedicace.jpg" alt="Bouquet avec ruban dédicace" loading="lazy"/></div>
+ <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-ruban-dedicace.jpg" alt="Gerbe mortuaire naturelle" loading="lazy"/></div>
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
- <h4>Bouquet avec ruban dédicace</h4>
- <p>Bouquet de roses crème avec ruban message personnalisé imprimé.</p>
+ <h4>Gerbe mortuaire naturelle</h4>
+ <span class="product-price">30 000 FCFA</span>
+ <p>Gerbe de fleurs naturelles pour cérémonie de condoléances.</p>
  <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Félicitations</span></div>
- <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet avec ruban dédicace')">Ajouter au panier</button>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Gerbe mortuaire naturelle')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
  <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-couronne-deuil-hommage.jpg" alt="Couronne deuil, Hommage" loading="lazy"/></div>
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
- <h4>Couronne deuil, Hommage</h4>
+ <h4>Couronne mortuaire naturelle</h4>
+ <span class="product-price">50 000 FCFA</span>
  <p>Couronne de roses blanches et chrysanthèmes, ruban message personnalisable.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Hommage')">Ajouter au panier</button>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne mortuaire naturelle — Hommage')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
  <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-couronne-deuil-repose-en-paix.jpg" alt="Couronne deuil, Repose en paix" loading="lazy"/></div>
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
- <h4>Couronne deuil, Repose en paix</h4>
+ <h4>Couronne mortuaire naturelle</h4>
+ <span class="product-price">65 000 FCFA</span>
  <p>Couronne florale blanche élégante avec ruban de condoléances.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Repose en paix')">Ajouter au panier</button>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne mortuaire naturelle — Repose en paix')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="bouquets" data-occ="deuil">
  <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-couronne-deuil-reconnaissance.jpg" alt="Couronne deuil, Reconnaissance" loading="lazy"/></div>
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
- <h4>Couronne deuil, Reconnaissance</h4>
+ <h4>Couronne mortuaire naturelle</h4>
+ <span class="product-price">70 000 FCFA</span>
  <p>Grande couronne blanche et crème, ruban institutionnel personnalisé.</p>
  <div class="product-tags"><span class="ptag">Deuil</span></div>
- <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne deuil — Reconnaissance')">Ajouter au panier</button>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Couronne mortuaire naturelle — Reconnaissance')">Ajouter au panier</button>
  </div>
 </div>
 <div class="product-card" data-cat="cadeaux" data-occ="felicitations,surprise">
@@ -1584,6 +1631,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Cadeaux sur mesure</span>
  <h4>Panier fruits & Ferrero Rocher</h4>
+ <span class="product-price">30 000 FCFA</span>
  <p>Panier garni de fruits frais variés et chocolats Ferrero Rocher.</p>
  <div class="product-tags"><span class="ptag">Félicitations</span> <span class="ptag">Surprise</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits & Ferrero Rocher')">Ajouter au panier</button>
@@ -1594,6 +1642,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Cadeaux sur mesure</span>
  <h4>Panier de fruits frais</h4>
+ <span class="product-price">25 000 FCFA</span>
  <p>Sélection de fruits de saison, panier tressé traditionnel.</p>
  <div class="product-tags"><span class="ptag">Surprise</span> <span class="ptag">Félicitations</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier de fruits frais')">Ajouter au panier</button>
@@ -1604,6 +1653,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <div class="product-info">
  <span class="product-cat-label">Cadeaux sur mesure</span>
  <h4>Panier fruits gourmand</h4>
+ <span class="product-price">20 000 FCFA</span>
  <p>Fruits frais variés et fraises, présentation généreuse.</p>
  <div class="product-tags"><span class="ptag">Surprise</span></div>
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits gourmand')">Ajouter au panier</button>
@@ -1759,8 +1809,41 @@ footer{padding:1.5rem 2rem;border-top:1px solid #eee;display:flex;justify-conten
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Décoration romantique complète')">Ajouter au panier</button>
  </div>
 </div>
+<div class="product-card" data-cat="bouquets" data-occ="religieux">
+ <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-vierge-marie.jpg" alt="Bouquet Vierge Marie" loading="lazy"/></div>
+ <div class="product-info">
+ <span class="product-cat-label">Bouquets & créations florales</span>
+ <h4>Bouquet Vierge Marie</h4>
+ <span class="product-price">15 000 FCFA</span>
+ <p>Bouquet coloré de chrysanthèmes, dédié aux célébrations religieuses.</p>
+ <div class="product-tags"><span class="ptag">Fêtes religieuses</span></div>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Bouquet Vierge Marie')">Ajouter au panier</button>
  </div>
- <div class="no-results" id="no-results" style="display:none;">
+</div>
+<div class="product-card" data-cat="cadeaux" data-occ="anniversaire,surprise">
+ <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-panier-fruits-provisions.jpg" alt="Panier fruits & provisions" loading="lazy"/></div>
+ <div class="product-info">
+ <span class="product-cat-label">Cadeaux sur mesure</span>
+ <h4>Panier fruits & provisions</h4>
+ <span class="product-price">25 000 FCFA</span>
+ <p>Panier garni de fruits frais et provisions gourmandes, idéal pour surprendre.</p>
+ <div class="product-tags"><span class="ptag">Anniversaire</span> <span class="ptag">Surprise</span></div>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits & provisions')">Ajouter au panier</button>
+ </div>
+</div>
+ </div>
+ <div class="product-card" data-cat="bouquets" data-occ="amour">
+ <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-3-roses-gypsophile.jpg" alt="3 roses naturelles et 1 gypsophile" loading="lazy"/></div>
+ <div class="product-info">
+ <span class="product-cat-label">Bouquets & créations florales</span>
+ <h4>3 roses naturelles et 1 gypsophile</h4>
+ <span class="product-price">14 500 FCFA</span>
+ <p>Bouquet délicat de 3 roses rouges fraîches et gypsophile, emballage crème.</p>
+ <div class="product-tags"><span class="ptag">Amour & St-Valentin</span></div>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('3 roses naturelles et 1 gypsophile')">Ajouter au panier</button>
+ </div>
+</div>
+<div class="no-results" id="no-results" style="display:none;">
  <p>Aucun produit ne correspond à cette combinaison pour le moment.</p>
  <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">Demander sur WhatsApp </a>
  </div>
@@ -2019,6 +2102,11 @@ const pages=['home','services','service-mariage','service-corporate','service-fe
 let activeCat = 'all';
 let activeOcc = 'all';
 
+function toggleFilters() {
+  document.getElementById('filters-panel').classList.toggle('open');
+  document.getElementById('filters-toggle').classList.toggle('open');
+}
+
 function filterCat(cat) {
  activeCat = cat;
  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -2237,12 +2325,31 @@ function toggleFaq(el) {
  if (!isOpen) el.classList.add('open');
 }
 
+function toggleMobileNav(){
+ const links=document.getElementById('nav-links');
+ const overlay=document.getElementById('nav-overlay');
+ const icon=document.getElementById('nav-burger-icon');
+ const isOpen=links.classList.toggle('mobile-open');
+ overlay.classList.toggle('open',isOpen);
+ icon.classList.toggle('ti-menu-2',!isOpen);
+ icon.classList.toggle('ti-x',isOpen);
+ document.body.style.overflow=isOpen?'hidden':'';
+}
 function goTo(page){
  pages.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
  Object.values(navIds).forEach(id=>document.getElementById(id).classList.remove('active-link'));
  document.getElementById('page-'+page).classList.add('active');
  if(navIds[page])document.getElementById(navIds[page]).classList.add('active-link');
  window.scrollTo(0,0);
+ const links=document.getElementById('nav-links');
+ if(links.classList.contains('mobile-open')){
+ links.classList.remove('mobile-open');
+ document.getElementById('nav-overlay').classList.remove('open');
+ const icon=document.getElementById('nav-burger-icon');
+ icon.classList.add('ti-menu-2');
+ icon.classList.remove('ti-x');
+ document.body.style.overflow='';
+ }
 }
 function submitForm(){
  const nom=document.getElementById('f-nom').value.trim();
