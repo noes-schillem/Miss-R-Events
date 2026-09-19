@@ -601,6 +601,23 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
   .order-modal-card{padding:1.5rem;}
 }
 
+.gallery-badge{position:absolute;bottom:8px;right:8px;background:rgba(13,13,13,0.85);color:#fff;font-size:11px;padding:5px 10px;border-radius:20px;display:flex;align-items:center;gap:4px;backdrop-filter:blur(4px);}
+.gallery-badge i{font-size:13px;color:#B47B2A;}
+.gallery-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:500;align-items:center;justify-content:center;}
+.gallery-modal.open{display:flex;}
+.gallery-modal img{max-width:88%;max-height:80vh;border-radius:8px;object-fit:contain;}
+.gallery-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:22px;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.gallery-close:hover{background:#B47B2A;}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:26px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.gallery-arrow:hover{background:#B47B2A;}
+.gallery-prev{left:16px;}
+.gallery-next{right:16px;}
+.gallery-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.7);font-size:13px;background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;}
+@media(max-width:768px){
+.gallery-arrow{width:40px;height:40px;font-size:20px;}
+.gallery-prev{left:8px;}
+.gallery-next{right:8px;}
+}
 </style>
 </head>
 <body>
@@ -1527,6 +1544,21 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
  <!-- GRILLE PRODUITS -->
  <div class="boutique-body">
  <div class="product-grid" id="product-grid">
+<div class="product-card" data-cat="cadeaux" data-occ="amour,anniversaire,naissance">
+ <div class="product-img" onclick='openGallery(['https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee.jpg','https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee-2.jpg','https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee-3.jpg','https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee-4.jpg','https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee-5.jpg','https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee-6.jpg'])' style="cursor:pointer;position:relative;">
+ <img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee.jpg" alt="Nounours et peluche personnalisée" loading="lazy"/>
+ <span class="gallery-badge"><i class="ti ti-photo"></i> 6 photos</span>
+ </div>
+ <div class="product-info">
+ <span class="product-cat-label">Cadeaux sur mesure</span>
+ <h4>Nounours et peluche personnalisée</h4>
+ <span class="product-price">À partir de 5 000 FCFA</span>
+ <p>Peluche personnalisable avec prénom ou message brodé, plusieurs tailles et couleurs disponibles.</p>
+ <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Anniversaire</span> <span class="ptag">Naissance</span></div>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Nounours et peluche personnalisée')">Ajouter au panier</button>
+ </div>
+</div>
+
 <div class="product-card" data-cat="bouquets" data-occ="amour">
  <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-roses-rouges-jaunes.jpg" alt="Bouquet roses rouges & jaunes" loading="lazy"/></div>
  <div class="product-info">
@@ -1843,17 +1875,6 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('3 roses naturelles et 1 gypsophile')">Ajouter au panier</button>
  </div>
 </div>
-<div class="product-card" data-cat="cadeaux" data-occ="amour,anniversaire,naissance">
- <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee.jpg" alt="Nounours et peluche personnalisée" loading="lazy"/></div>
- <div class="product-info">
- <span class="product-cat-label">Cadeaux sur mesure</span>
- <h4>Nounours et peluche personnalisée</h4>
- <span class="product-price">À partir de 5 000 FCFA</span>
- <p>Peluche personnalisable avec prénom ou message brodé, plusieurs tailles et couleurs disponibles.</p>
- <div class="product-tags"><span class="ptag">Amour & St-Valentin</span> <span class="ptag">Anniversaire</span> <span class="ptag">Naissance</span></div>
- <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Nounours et peluche personnalisée')">Ajouter au panier</button>
- </div>
-</div>
 <div class="no-results" id="no-results" style="display:none;">
  <p>Aucun produit ne correspond à cette combinaison pour le moment.</p>
  <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">Demander sur WhatsApp </a>
@@ -2112,6 +2133,34 @@ const pages=['home','services','service-mariage','service-corporate','service-fe
 
 let activeCat = 'all';
 let activeOcc = 'all';
+
+let galleryImages = [];
+let galleryIndex = 0;
+
+function openGallery(images) {
+  galleryImages = images;
+  galleryIndex = 0;
+  document.getElementById('gallery-img').src = galleryImages[galleryIndex];
+  document.getElementById('gallery-counter').textContent = (galleryIndex+1) + ' / ' + galleryImages.length;
+  document.getElementById('gallery-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeGallery() {
+  document.getElementById('gallery-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function galleryNext(e) {
+  if(e) e.stopPropagation();
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  document.getElementById('gallery-img').src = galleryImages[galleryIndex];
+  document.getElementById('gallery-counter').textContent = (galleryIndex+1) + ' / ' + galleryImages.length;
+}
+function galleryPrev(e) {
+  if(e) e.stopPropagation();
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById('gallery-img').src = galleryImages[galleryIndex];
+  document.getElementById('gallery-counter').textContent = (galleryIndex+1) + ' / ' + galleryImages.length;
+}
 
 function toggleFilters() {
   document.getElementById('filters-panel').classList.toggle('open');
@@ -2450,6 +2499,15 @@ setTimeout(spLoop, rand(8000, 18000));
   else window.addEventListener('load', decodeAll);
 })();
 </script>
+
+<!-- MODALE GALERIE PHOTO -->
+<div class="gallery-modal" id="gallery-modal" onclick="closeGallery()">
+ <button class="gallery-close" onclick="closeGallery()"><i class="ti ti-x"></i></button>
+ <button class="gallery-arrow gallery-prev" onclick="galleryPrev(event)"><i class="ti ti-chevron-left"></i></button>
+ <img id="gallery-img" src="" alt="Photo produit"/>
+ <button class="gallery-arrow gallery-next" onclick="galleryNext(event)"><i class="ti ti-chevron-right"></i></button>
+ <div class="gallery-counter" id="gallery-counter">1 / 1</div>
+</div>
 
 </body>
 </html>
