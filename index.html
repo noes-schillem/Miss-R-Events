@@ -614,9 +614,9 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
 .gallery-next{right:16px;}
 .gallery-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.7);font-size:13px;background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;}
 @media(max-width:768px){
-.gallery-arrow{width:40px;height:40px;font-size:20px;}
-.gallery-prev{left:8px;}
-.gallery-next{right:8px;}
+.gallery-arrow{width:46px;height:46px;font-size:24px;background:rgba(255,255,255,0.18);}
+.gallery-prev{left:6px;}
+.gallery-next{right:6px;}
 }
 </style>
 </head>
@@ -2174,6 +2174,19 @@ function galleryPrev(e) {
   document.getElementById('gallery-counter').textContent = (galleryIndex+1) + ' / ' + galleryImages.length;
 }
 
+let galleryTouchStartX = 0;
+let galleryTouchEndX = 0;
+function galleryTouchStart(e) {
+  galleryTouchStartX = e.changedTouches[0].screenX;
+}
+function galleryTouchEnd(e) {
+  galleryTouchEndX = e.changedTouches[0].screenX;
+  const delta = galleryTouchEndX - galleryTouchStartX;
+  if (Math.abs(delta) > 40) {
+    if (delta < 0) { galleryNext(); } else { galleryPrev(); }
+  }
+}
+
 function toggleFilters() {
   document.getElementById('filters-panel').classList.toggle('open');
   document.getElementById('filters-toggle').classList.toggle('open');
@@ -2513,7 +2526,7 @@ setTimeout(spLoop, rand(8000, 18000));
 </script>
 
 <!-- MODALE GALERIE PHOTO -->
-<div class="gallery-modal" id="gallery-modal" onclick="closeGallery()">
+<div class="gallery-modal" id="gallery-modal" onclick="closeGallery()" ontouchstart="galleryTouchStart(event)" ontouchend="galleryTouchEnd(event)">
  <button class="gallery-close" onclick="closeGallery()"><i class="ti ti-x"></i></button>
  <button class="gallery-arrow gallery-prev" onclick="galleryPrev(event)"><i class="ti ti-chevron-left"></i></button>
  <img id="gallery-img" src="" alt="Photo produit"/>
