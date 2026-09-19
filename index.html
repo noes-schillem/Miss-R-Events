@@ -1536,7 +1536,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
 <button class="occ-btn" data-occ="surprise" onclick="filterOcc('surprise')">Surprise</button>
  </div>
  </div>
- <div class="filter-count" id="filter-count">31 produits disponibles</div>
+ <div class="filter-count" id="filter-count">32 produits disponibles</div>
  </div>
  </div>
  </div>
@@ -1544,6 +1544,21 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
  <!-- GRILLE PRODUITS -->
  <div class="boutique-body">
  <div class="product-grid" id="product-grid">
+<div class="product-card" data-cat="ceremonie" data-occ="mariage">
+ <div class="product-img" onclick="openGallery('dragees-perso')" style="cursor:pointer;position:relative;">
+ <img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-dragees-personnalisees.jpg" alt="Dragées personnalisées" loading="lazy"/>
+ <span class="gallery-badge"><i class="ti ti-photo"></i> 4 photos</span>
+ </div>
+ <div class="product-info">
+ <span class="product-cat-label">Articles de cérémonie</span>
+ <h4>Dragées personnalisées</h4>
+ <span class="product-price">Prix sur devis</span>
+ <p>Sachets de dragées personnalisés avec étiquette aux couleurs de votre mariage, plusieurs coloris disponibles.</p>
+ <div class="product-tags"><span class="ptag">Mariage</span></div>
+ <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Dragées personnalisées')">Ajouter au panier</button>
+ </div>
+</div>
+
 <div class="product-card" data-cat="cadeaux" data-occ="amour,anniversaire,naissance">
  <div class="product-img" onclick="openGallery('peluche-perso')" style="cursor:pointer;position:relative;">
  <img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-peluche-personnalisee.jpg" alt="Nounours et peluche personnalisée" loading="lazy"/>
@@ -1863,8 +1878,7 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('Panier fruits & provisions')">Ajouter au panier</button>
  </div>
 </div>
- </div>
- <div class="product-card" data-cat="bouquets" data-occ="amour">
+<div class="product-card" data-cat="bouquets" data-occ="amour">
  <div class="product-img"><img src="https://res.cloudinary.com/llycojng/image/upload/f_auto,q_auto/produit-bouquet-3-roses-gypsophile.jpg" alt="3 roses naturelles et 1 gypsophile" loading="lazy"/></div>
  <div class="product-info">
  <span class="product-cat-label">Bouquets & créations florales</span>
@@ -1875,7 +1889,8 @@ footer{padding:1.5rem 2rem;border-top:1px solid #1a1a1a;display:flex;justify-con
  <button class="product-order-btn add-to-cart-btn" onclick="addToCart('3 roses naturelles et 1 gypsophile')">Ajouter au panier</button>
  </div>
 </div>
-<div class="no-results" id="no-results" style="display:none;">
+ </div>
+ <div class="no-results" id="no-results" style="display:none;">
  <p>Aucun produit ne correspond à cette combinaison pour le moment.</p>
  <a class="rdv-wa-btn" href="https://wa.me/22966733120" target="_blank">Demander sur WhatsApp </a>
  </div>
@@ -2143,6 +2158,12 @@ const productGalleries = {
     CLOUD_BASE + 'produit-peluche-personnalisee-4.jpg',
     CLOUD_BASE + 'produit-peluche-personnalisee-5.jpg',
     CLOUD_BASE + 'produit-peluche-personnalisee-6.jpg'
+  ],
+  'dragees-perso': [
+    CLOUD_BASE + 'produit-dragees-personnalisees.jpg',
+    CLOUD_BASE + 'produit-dragees-personnalisees-2.jpg',
+    CLOUD_BASE + 'produit-dragees-personnalisees-3.jpg',
+    CLOUD_BASE + 'produit-dragees-personnalisees-4.jpg'
   ]
 };
 let galleryImages = [];
